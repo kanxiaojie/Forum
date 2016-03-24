@@ -1,0 +1,43 @@
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+.aw-top-menu-wrap{
+  background-color: #f4726d;
+}
+
+.aw-container-wrap{
+  margin-top: 35px;
+  padding-top: 60px;
+}
+
+.footer-nav{
+  padding: 50px 0 65px;
+  font-size: 16px;
+  text-align: center;
+  color: #666;
+}
+
+body{
+  background-color: #bebebe;
+  padding-left: 130px;
+  padding-right: 130px;
+}
+
+.content{
+  font-size: 1.35em;
+}
+
+.mod-body{
+  position: relative;
+  margin-top: 12px;
+  line-height: 28px;
+}
+
+.aw-replay-box{
+  margin: 20px 0 0;
+  padding: 0 20px;
+}
+
+.aw-question-comment{
+  padding-top: 25px;
+}
+
