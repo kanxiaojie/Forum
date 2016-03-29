@@ -12,7 +12,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 $factory->define(App\Post::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->title,
-        'subtitle' => $faker->sentence(mt_rand(3,10)),
+        'subtitle' => $faker->sentence(mt_rand(2,4)),
         'content' => join("\n\n", $faker->paragraphs(mt_rand(6, 8))),
         'published_at' => $faker->dateTimeBetween('-1 month', '+3 days'),
     ];

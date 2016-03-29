@@ -5750,15 +5750,16 @@ button.close {
     display: none !important; } }
 
 .aw-top-menu-wrap {
-  background-color: #f4726d; }
+  background-color: #f8f8f8; }
 
 .aw-container-wrap {
   margin-top: 35px;
   padding-top: 60px; }
 
 .footer-nav {
-  padding: 50px 0 65px;
-  font-size: 16px;
+  padding: 20px 0 5px;
+  margin: 20px 0 40px;
+  font-size: 14px;
   text-align: center;
   color: #666; }
 
@@ -5768,7 +5769,8 @@ body {
   padding-right: 130px; }
 
 .content {
-  font-size: 1.35em; }
+  font-size: 1.35em;
+  padding-top: 35px; }
 
 .mod-body {
   position: relative;
