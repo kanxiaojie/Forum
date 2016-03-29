@@ -14,6 +14,7 @@ class PostsController extends Controller
      */
     public function index()
     {
+        flash()->overlay("Welcome!", "You've been in successfully");
         $posts = Post::all();
         return view('posts.index',compact('posts'));
     }
@@ -41,6 +42,8 @@ class PostsController extends Controller
      */
     public function store(PostRequest $request)
     {
+        flash()->success('Success!', 'Your flyer have been created!');
+
         $post = Post::create($request->all());
 
         return back();
@@ -61,6 +64,17 @@ class PostsController extends Controller
         $post = Post::findOrFail($id);
 
         $post->update($request->all());
+
+        return redirect()
+               ->route('posts.index')
+               ->withSuccess('You have been edited successfully!');
+    }
+
+    public function destroy($id)
+    {
+        $post = Post::findOrFail($id);
+
+        $post->delete();
 
         return back();
     }
