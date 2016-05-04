@@ -5,9 +5,11 @@
     <title>LaravelForum</title>
     <link rel="stylesheet" href="/css/libs.css" >
     <link rel="stylesheet" href="/css/app.css" >
+    <link rel="stylesheet" href="/css/font" >
+    <link rel="stylesheet" href="/css/font-awesome.min.css" >
     {{--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.0.1/dropzone.css">--}}
 
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    {{--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">--}}
 
     <style>
         .navbar{
@@ -49,11 +51,15 @@
 
     @include('partials.page-nav')
 
-    @yield('content')
+    <div class="container">
+        @yield('content')
+    </div>
 
-    @include('partials.page-footer')
-
+    {{--@include('partials.page-footer')--}}
     <script src="/js/libs.js"></script>
+
+    @yield('scripts')
+
 
     @include('flash')
 

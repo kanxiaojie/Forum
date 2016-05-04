@@ -18,7 +18,6 @@ class CreatePostsTable extends Migration
             $table->string('subtitle');
             $table->text('content');
             $table->timestamps();
-            $table->timestamp('published_at')->index();
         });
     }
 

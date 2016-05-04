@@ -1,17 +1,9 @@
-@extends('layouts.app')
+@extends('layout')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">Welcome</div>
-
-                <div class="panel-body">
-                    Your Application's Landing Page.
-                </div>
-            </div>
+    <div class="jumbotron" style="margin-top: 120px">
+        <div class="text-center">
+            <h1>Welcome to application</h1>
         </div>
     </div>
-</div>
 @endsection

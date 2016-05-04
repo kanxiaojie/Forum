@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -30,7 +32,7 @@ class AuthController extends Controller
      */
 
     protected $redirectAfterLogout = '/login';
-    protected $redirectTo = '/posts';
+    protected $redirectTo = '/';
 
     /**
      * Create a new authentication controller instance.
@@ -39,6 +41,7 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+        parent::__construct();
     }
 
     /**
@@ -69,5 +72,28 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function redirectToProvider()
+    {
+        return Socialite::driver('github')->redirect();
+    }
+
+    public function handleProviderCallback()
+    {
+        $user = Socialite::driver('github')->user();
+
+        if(!User::where('github_id', $user->id)->first()){
+            $userModel = new User();
+            $userModel->github_id = $user->id;
+//            $userModel->email = $user->email;
+            $userModel->name = $user->name;
+            $userModel->avatar = $user->avatar;
+            $userModel->save();
+        }
+
+        $userInstance = User::where('github_id', $user->id)->firstOrFail();
+        Auth::login($userInstance);
+        echo $user->name.'登录成功!';
     }
 }

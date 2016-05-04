@@ -6,17 +6,26 @@ use App\Post;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 
 class PostsController extends Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     /**
      *
      */
     public function index()
     {
-        flash()->overlay("Welcome!", "You've been in successfully");
-        $posts = Post::all();
+//        $posts = DB::table('posts')->paginate(5);
+        $posts = Post::where('id','>', 10)->paginate(10);
+//        $posts = Post::all();
         return view('posts.index',compact('posts'));
+
     }
 
     /**
@@ -42,11 +51,12 @@ class PostsController extends Controller
      */
     public function store(PostRequest $request)
     {
-        flash()->success('Success!', 'Your flyer have been created!');
+        flash()->success('Success!', 'Your post have been created!');
 
-        $post = Post::create($request->all());
+        Post::create($request->all());
 
-        return back();
+        return redirect()
+               ->route("posts.index");
     }
 
     /**
@@ -61,6 +71,8 @@ class PostsController extends Controller
 
     public function update(PostRequest $request, $id)
     {
+        flash()->success('Success!', 'Your post have been edited successfully!');
+
         $post = Post::findOrFail($id);
 
         $post->update($request->all());
@@ -77,5 +89,31 @@ class PostsController extends Controller
         $post->delete();
 
         return back();
+    }
+
+    public function getUrl(Request $request)
+    {
+        if(!$request->is('request/*')){
+            abort(404);
+        }
+
+        $uri = $request->path();
+        $url = $request->url();
+        $method = $request->method();
+        echo $uri.'<br/>';
+        echo $url.'<br/>';
+        echo $method;
+    }
+
+    public function getLastRequest(Request $request)
+    {
+        $request->flash();
+    }
+
+    public function getCurrentRequest(Request $request)
+    {
+        $lastRequestData = $request->old();
+        echo '<pre>';
+        print_r($lastRequestData);
     }
 }

@@ -2,10 +2,8 @@
     <hr>
     <div class="col-md-12 form-group aw-replay-box">
         <div class="mod-head">
-            <a
-                href="#"
-                class="aw-user-name"><img alt="{{ Auth::user()->name }}"
-                src="http://wenda.golaravel.com/static/common/avatar-mid-img.png">
+            <a href="#" class="aw-user-name">
+                {{ $user->name }}
             </a>
             <p>
                 <label class="pull-right">

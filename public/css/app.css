@@ -5764,7 +5764,8 @@ button.close {
   color: #666; }
 
 body {
-  background-color: #bebebe;
+  background-color: white;
+  padding-top: 70px;
   padding-left: 130px;
   padding-right: 130px; }
 
@@ -5783,5 +5784,16 @@ body {
 
 .aw-question-comment {
   padding-top: 25px; }
+
+.rightpanel {
+  width: 255px;
+  position: fixed;
+  background-color: #fff; }
+
+th {
+  text-align: center; }
+
+td {
+  text-align: center; }
 
 /*# sourceMappingURL=app.css.map */

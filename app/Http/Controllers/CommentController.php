@@ -10,10 +10,6 @@ use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
-    protected $fields = [
-        'statement' => '',
-    ];
-
     public function __construct()
     {
         $this->middleware('auth', ['except' => ['show']]);
@@ -23,6 +19,11 @@ class CommentController extends Controller
 
     public function index()
     {
+    }
+
+    public function show()
+    {
+
     }
 
     public function create($id)
@@ -35,5 +36,10 @@ class CommentController extends Controller
         $comments = Comment::create($request->all());
 
         return back();
+    }
+
+    public function update()
+    {
+
     }
 }

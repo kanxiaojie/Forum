@@ -1,17 +1,55 @@
 <?php
 
+use Illuminate\Http\Response;
+
+Route::get('testResponseDownload', function(){
+   return response()->download(
+       realpath(base_path('public/images')).'/3.jpg','Laravel.jpg'
+   );
+});
+
+Route::get('testResponse', function(){
+    return response()->json(['name'=>'LaravelAcademy', 'passwrd' => 'Laravel.org'])
+        ->setCallback(request()->input('callback'))
+        ;
+});
+
+Route::get('mail/send', 'MailController@send');
+
 Route::group(['middleware' => ['web']], function () {
 
-    Route::get('/', function () {
-        return view('welcome');
-    });
+    Route::get('auth/github','Auth\AuthController@redirectToProvider');
+    Route::get('auth/github/callback', 'Auth\AuthController@handleProviderCallback');
 
-//    Route::get('posts/{id}', 'PostsController@show');
-    Route::resource('posts', 'PostsController');
 
-    Route::group(['prefix' => 'posts/{id}'], function(){
+    Route::group(['middleware' => 'auth'], function(){
 
-        Route::resource('comments', 'CommentController');
+        Route::get('excel/export', 'ExcelController@export');
+        Route::get('excel/import', 'ExcelController@import');
+
+        Route::get('/', function () {
+            return view('welcome');
+        });
+
+        Route::resource('posts', 'PostsController');
+        Route::get('request/url', 'PostsController@getUrl');
+        Route::group(['prefix' => 'posts/{id}'], function(){
+            Route::resource('comments', 'CommentController');
+        });
+
+        Route::resource('areas', 'AreasController', ['except' => 'show']);
+        Route::get('areas/ajaxShow', 'AreasController@ajaxShow');
+
+        Route::resource('phones', 'PhoneController');
+
+        Route::get('contact', 'ContactController@showForm');
+        Route::post('contact', 'ContactController@sendContactInfo');
+
+        Route::group(['namespace' => 'Admin'], function(){
+
+            Route::get('admin/upload', 'UploadController@index');
+
+        });
 
     });
 
