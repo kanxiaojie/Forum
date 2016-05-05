@@ -19,12 +19,12 @@
                 <button class="btn btn-success btn-md"
                         data-toggle="modal"
                         data-target="#modal-folder-create">
-                    <i class="fa fa-plus-circle"></i>New Folder
+                    <i class="icon icon-plus-sign"></i> New Folder
                 </button>
                 <button class="btn btn-primary btn-md"
                         data-toggle="modal"
                         data-target="#modal-file-upload">
-                    <i class="fa fa-upload"></i>Upload
+                    <i class="icon icon-upload"></i> Upload
                 </button>
             </div>
         </div>

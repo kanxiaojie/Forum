@@ -8,11 +8,6 @@
                         <a href="#">LaravelForum</a>
                     </li>
                 </ul>
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="/contact">Contact</a>
-                    </li>
-                </ul>
             </div>
 
             <div id="navbar" class="collapse navbar-collapse">
@@ -22,6 +17,7 @@
                             <form class="navbar-search" action="" id="global_search_form" method="post">
                                 <div class="form-inline">
                                     <input class="form-control" type="text" placeholder="Search Keyword" id="aw-search-query">
+                                    <i class="icon icon-search"></i>
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </form>
@@ -39,8 +35,8 @@
                             <nav role="navigation" class="collapse navbar-collapse bs-navbar-collapse">
                                 <ul class="nav navbar-nav">
                                     <li><a href="/areas"><i class="icon icon-home"></i>Dynamic</a></li>
-                                    <li><a href="/posts" class="active"><i class="icon icon-ul"></i> Find</a></li>
-                                    <li><a href="/phones"><i class="icon icon-topic"></i> Topic</a></li>
+                                    <li><a href="/posts" class="active"><i class="icon icon-eye-close"></i> Find</a></li>
+                                    <li><a href="/phones"><i class="icon "></i> Topic</a></li>
                                     <li>
                                         <a href="/admin/upload" class=""><i class="icon icon-bell"></i> Notice</a>
                                     </li>

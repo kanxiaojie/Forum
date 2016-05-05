@@ -31,7 +31,7 @@ class ExcelController extends Controller
     public function export()
     {
         $postsData = Post::all()->toArray();
-        Excel::create(iconv('UTF-8', 'GBK', '文章'),function($excel) use ($postsData){
+        Excel::create(iconv('UTF-8', 'GBK', 'post'),function($excel) use ($postsData){
             $excel->sheet('score', function($sheet) use ($postsData){
                 $sheet->rows($postsData);
             });
@@ -56,28 +56,36 @@ class ExcelController extends Controller
 //        });
 //    }
 
-//    public function import(){
-//        $filePath = "storage/exports/".iconv("UTF-8", "GBK", "学生成绩").".xls";
-//        $dataAll = Excel::load($filePath)->sheet(0)->toArray();
-//        dd($dataAll);
-//    }
-
-    public function import()
-    {
-        if(Input::hasFile(iconv("UTF-8", "GBK", "联系人名单").".xls")){
-            $path = "storage/exports/".iconv("UTF-8", "GBK", "联系人名单").".xls";
-            $data = Excel::load($path, function($reader) {
-            })->get();
-            if(!empty($data) && $data->count()){
-                foreach ($data as $key => $value) {
-                    $insert[] = ['id' => $value->id, 'name' => $value->name];
-                }
-                if(!empty($insert)){
-                    DB::table('phones')->insert($insert);
-                    dd('Insert Record successfully.');
-                }
-            }
+    public function import(){
+        $filePath = "storage/exports/".iconv("UTF-8", "GBK", "post").".xls";
+        $dataAll = Excel::load($filePath)->sheet(0)->toArray();
+//        array_shift($dataAll);
+        foreach($dataAll as $data)
+        {
+             $post = new Post();
+             $post['title'] = $data[0];
+             $post['subtitle'] = $data[1];
+             $post['content'] = $data[2];
+            $post->save();
         }
-        return back();
     }
+
+//    public function import()
+//    {
+//        if(Input::hasFile(iconv("UTF-8", "GBK", "联系人名单").".xls")){
+//            $path = "storage/exports/".iconv("UTF-8", "GBK", "联系人名单").".xls";
+//            $data = Excel::load($path, function($reader) {
+//            })->get();
+//            if(!empty($data) && $data->count()){
+//                foreach ($data as $key => $value) {
+//                    $insert[] = ['id' => $value->id, 'name' => $value->name];
+//                }
+//                if(!empty($insert)){
+//                    DB::table('phones')->insert($insert);
+//                    dd('Insert Record successfully.');
+//                }
+//            }
+//        }
+//        return back();
+//    }
 }
