@@ -39,7 +39,6 @@ Route::group(['middleware' => ['web']], function () {
         Route::post('posts/photos/{id}', 'PostsController@photosDestroy');
 
 
-
         Route::get('request/url', 'PostsController@getUrl');
         Route::group(['prefix' => 'posts/{id}'], function(){
             Route::resource('comments', 'CommentController');
