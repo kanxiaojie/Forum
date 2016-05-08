@@ -22,6 +22,7 @@
                         <th>Subtitle</th>
                         <th>Author</th>
                         <th>Action</th>
+                        <th>View Photos</th>
                     </tr>
                     </thead>
 
@@ -58,6 +59,9 @@
                                 {{--</button>--}}
                                 {{--</form>--}}
 
+                            </td>
+                            <td>
+                                <a class="btn btn-primary" href="/posts/{{ $post->id }}/photos">查看照片</a>
                             </td>
                         </tr>
                     @endforeach

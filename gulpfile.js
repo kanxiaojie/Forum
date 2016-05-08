@@ -20,7 +20,9 @@ elixir(function(mix) {
             'libs/select2.min.js',
             //'libs/jquery.dynatable.js',
             'libs/jquery.dataTables.js',
-            'libs/dataTables.bootstrap.js'
+            'libs/dataTables.bootstrap.js',
+            'libs/dropzone.js',
+            'libs/lity.js'
         ],'./public/js/libs.js')
         .styles([
             'libs/sweetalert.css',
@@ -28,6 +30,8 @@ elixir(function(mix) {
             'libs/bootstrap.min.css',
             //'libs/font-awesome.min.css',
             'libs/font-awesome.css',
-            'libs/font-awesome-ie7.css'
+            'libs/font-awesome-ie7.css',
+            'libs/dropzone.css',
+            'libs/lity.css'
         ],'./public/css/libs.css');
 });

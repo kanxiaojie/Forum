@@ -18,11 +18,7 @@
             </div>
         </div>
 
-        <div class="row aw-mod aw-question-comment">
-            @include('comments.reviewlist')
-        </div>
 
-            @include('comments.create')
 
     </div>
 @stop

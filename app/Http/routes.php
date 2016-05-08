@@ -18,6 +18,8 @@ Route::get('mail/send', 'MailController@send');
 
 Route::group(['middleware' => ['web']], function () {
 
+    Route::auth();
+
     Route::get('auth/github','Auth\AuthController@redirectToProvider');
     Route::get('auth/github/callback', 'Auth\AuthController@handleProviderCallback');
 
@@ -32,6 +34,12 @@ Route::group(['middleware' => ['web']], function () {
         });
 
         Route::resource('posts', 'PostsController');
+        Route::get('posts/{post_id}/photos', 'PostsController@photos');
+        Route::post('posts/{post_id}/photos/store', ['as' => 'store_photo_path', 'uses' => 'PostsController@photosStore']);
+        Route::post('posts/photos/{id}', 'PostsController@photosDestroy');
+
+
+
         Route::get('request/url', 'PostsController@getUrl');
         Route::group(['prefix' => 'posts/{id}'], function(){
             Route::resource('comments', 'CommentController');
@@ -53,6 +61,6 @@ Route::group(['middleware' => ['web']], function () {
 
     });
 
-    Route::auth();
+
 });
 

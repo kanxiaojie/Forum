@@ -27,8 +27,13 @@ class Post extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function allR()
+    public function addPhoto(Photo $photo)
     {
+        return $this->photo()->save($photo);
+    }
 
+    public function photo()
+    {
+        return $this->hasMany('App\Photo');
     }
 }

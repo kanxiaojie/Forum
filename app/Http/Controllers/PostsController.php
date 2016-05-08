@@ -2,19 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\AddPhotoToPost;
+use App\Photo;
 use App\Post;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class PostsController extends Controller
 {
-    public function __construct()
-    {
-        parent::__construct();
-    }
+//    public function __construct()
+//    {
+//        parent::__construct();
+//    }
 
     /**
      *
@@ -115,5 +118,37 @@ class PostsController extends Controller
         $lastRequestData = $request->old();
         echo '<pre>';
         print_r($lastRequestData);
+    }
+
+    /**
+     * 显示照片
+     * @param $post_id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function photos($post_id)
+    {
+        $post = Post::findOrFail($post_id);
+
+        return view('posts.photos', compact('post', 'post_id'));
+    }
+
+    /**
+     * 保存照片
+     * @param Request $request
+     * @param $post_id
+     */
+    public function photosStore(Request $request, $post_id)
+    {
+        $post = Post::where('id', $post_id)->first();
+        $photo = $request->file('photo');
+
+        (new AddPhotoToPost($post,$photo))->save();
+    }
+
+    public function photosDestroy($id)
+    {
+        Photo::findOrFail($id)->delete();
+
+        return back();
     }
 }

@@ -1,7 +1,15 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kan
- * Date: 16-5-8
- * Time: 下午2:13
- */
+
+namespace App;
+
+use Image;
+
+class Thumbnail
+{
+    public function make($src, $destination)
+    {
+        Image::make($src)
+            ->fit(200)
+            ->save($destination);
+    }
+}
