@@ -11,18 +11,27 @@ use App\Http\Requests;
 
 class AreasController extends Controller
 {
-    public function ajaxShow(Request $request)
-    {
-        $inputs = $request->all();
-        $cities = City::where('province_id', $inputs['province_id'])->get()->toArray();
-
-        return response($cities);
-    }
+//    public function ajaxShow(Request $request)
+//    {
+//        $inputs = $request->all();
+//        $cities = City::where('province_id', $inputs['province_id'])->get()->toArray();
+//
+//        return response($cities);
+//    }
 
     public function index()
     {
-        $provinces = Province::all();
+        $provinces = Province::all()->pluck('name', 'id');
+        $cities = City::all()->pluck('name', 'id');
 
-        return view('areas.index', compact('provinces'));
+        return view('areas.index', compact('provinces', 'cities'));
+    }
+
+    public function province(Request $request)
+    {
+        $inputs = $request->all();
+        $cities = City::where('province_id', $inputs['province_id'])->get();
+
+        return $cities;
     }
 }

@@ -45,7 +45,9 @@ Route::group(['middleware' => ['web']], function () {
         });
 
         Route::resource('areas', 'AreasController', ['except' => 'show']);
+
         Route::get('areas/ajaxShow', 'AreasController@ajaxShow');
+        Route::post('ajax/province', 'AreasController@province');
 
         Route::resource('phones', 'PhoneController');
 

@@ -5,32 +5,54 @@
         <div class="row">
             <div class="col-md-2">
                 <div class="form-group">
-                    <select id="province" name="province" class="form-control">
-                        <option>-- 省份 --</option>
-                        @foreach($provinces as $province)
-                            <option>-- {{ $province->name }} --</option>
+                    <select type="text" id="province_id" name="province_id" class="form-control">
+                        @foreach($provinces as $id => $name)
+                            <option value="{{ $id }}" @if($id == 0) selected @endif>{{ $name }}</option>
                         @endforeach
                     </select>
                 </div>
             </div>
 
             <div class="col-md-2">
-                <select id="city" name="city" class="form-control">
-                    <option>-- 城市 --</option>
+                <select type="text" id="city" name="city" class="form-control">
+                    @foreach($cities as $id => $name)
+                        <option value="{{ $id }}" @if($id == 0) selected @endif>{{ $name }}</option>
+                    @endforeach
                 </select>
             </div>
 
-            <div class="col-md-2">
-                <select id="countyCity" name="countyCity" class="form-control">
-                    <option>-- 县级市 --</option>
-                </select>
-            </div>
-
-            <div class="col-md-2">
-                <select id="town" name="town" class="form-control">
-                    <option>-- 乡镇 --</option>
-                </select>
-            </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        $("#province_id").change(function(){
+            var province_id = $('#province_id').val();
+            $.ajaxSetup({
+                headers:{'X-CSRF-TOKEN': '{{ csrf_token() }}'}
+            });
+            $.ajax({
+                type:'POST',
+                url:'/ajax/province',
+                data: {province_id: province_id},
+                dataType: 'json',
+                success:function(data){
+                    var strCity = '';
+                    $.each(data, function(i){
+                        strCity += '<option value="';
+                        strCity += data[i].id;
+                        strCity += '">';
+                        strCity += data[i].name;
+                        strCity += '</option>';
+                    });
+                    $('#city').html('');
+                    $('#city').append(strCity);
+                },
+                error:function(xhr, type){
+                    alert('错误!')
+                }
+            });
+        });
+    </script>
 @endsection
