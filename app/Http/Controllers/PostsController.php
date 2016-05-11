@@ -28,7 +28,15 @@ class PostsController extends Controller
         $posts = Post::where('id','>', 10)->paginate(10);
 //        $posts = Post::all();
         return view('posts.index',compact('posts'));
+    }
 
+    public function active1(Request $request,$id)
+    {
+        $post = Post::findOrFail($id);
+        $post->active1 = $request->input('active1');
+        $post->save();
+
+        return back();
     }
 
     /**

@@ -17,6 +17,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('subtitle');
             $table->text('content');
+            $table->bigInteger('active1')->default(1);
             $table->timestamps();
         });
     }

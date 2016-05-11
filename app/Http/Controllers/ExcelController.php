@@ -38,6 +38,17 @@ class ExcelController extends Controller
         })->store('xls')->export('xls');
     }
 
+    public function postsExport()
+    {
+        $postsData = Post::all()->toArray();
+
+        Excel::create(iconv('UTF-8', 'GBK', 'post'),function($excel) use ($postsData){
+            $excel->sheet('score', function($sheet) use ($postsData){
+                $sheet->rows($postsData);
+            });
+        })->store('xls')->export('xls');
+    }
+
 //    public function export(Excel $excel)
 //    {
 //        $info = $this->test->all();

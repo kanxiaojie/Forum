@@ -29,6 +29,8 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('excel/export', 'ExcelController@export');
         Route::get('excel/import', 'ExcelController@import');
 
+        Route::get('excel/posts/export', 'ExcelController@postsExport');
+
         Route::get('/', function () {
             return view('welcome');
         });
@@ -37,6 +39,7 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('posts/{post_id}/photos', 'PostsController@photos');
         Route::post('posts/{post_id}/photos/store', ['as' => 'store_photo_path', 'uses' => 'PostsController@photosStore']);
         Route::post('posts/photos/{id}', 'PostsController@photosDestroy');
+        Route::post('posts/{id}/active1', 'PostsController@active1');
 
 
         Route::get('request/url', 'PostsController@getUrl');
