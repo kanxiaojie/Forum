@@ -40,11 +40,29 @@ class ExcelController extends Controller
 
     public function postsExport()
     {
-        $postsData = Post::all()->toArray();
+        $posts = Post::all();
+        $postsAllDatas = [];
+        $postName = ['序号', '标题', '副标题', '内容', '执行状态', '创建时间'];
+        $postsAllDatas[] = $postName;
 
-        Excel::create(iconv('UTF-8', 'GBK', 'post'),function($excel) use ($postsData){
-            $excel->sheet('score', function($sheet) use ($postsData){
-                $sheet->rows($postsData);
+        $i = 0;
+        foreach($posts as $post)
+        {
+            ${'postsData'.$i}[] = $post->id;
+            ${'postsData'.$i}[] = $post->title;
+            ${'postsData'.$i}[] = $post->subtitle;
+            ${'postsData'.$i}[] = $post->content;
+            ${'postsData'.$i}[] = $post->active1;
+            ${'postsData'.$i}[] = $post->created_at;
+
+            $postsAllDatas[] = ${'postsData'.$i};
+            $i++;
+        }
+
+        $cellData = $postsAllDatas;
+        Excel::create(iconv('UTF-8', 'GBK', 'post'),function($excel) use ($cellData){
+            $excel->sheet('score', function($sheet) use ($cellData){
+                $sheet->rows($cellData);
             });
         })->store('xls')->export('xls');
     }
