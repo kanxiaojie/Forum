@@ -9,12 +9,12 @@
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <input type="hidden" name="_method" value="PUT">
 
-            @include('phones.form_phone', ['name' => $phone->name])
+            @include('phones.form_phone', ['id' => $phone->id,'name' => $phone->name, 'width' => $phone->width, 'height' => $phone->height, 'area' => $phone->area, 'area1' => $phone->area])
             <hr/>
             <div class="form-group">
                 <div class="col-md-12">
                     <button type="submit" class="btn btn-info">
-                        修改联系人
+                        修改信息
                     </button>
                 </div>
             </div>

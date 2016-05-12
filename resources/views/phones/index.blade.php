@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-md-3 pull-left">
                     <a href="/phones/create" class="btn btn-primary">
-                        增加联系人
+                        添加手机到购物框
                     </a>
                 </div>
             </div>
@@ -16,7 +16,10 @@
                 <thead class="text-center">
                 <tr>
                     <td>编号</td>
-                    <td>姓名</td>
+                    <td>手机名称</td>
+                    <td>长度</td>
+                    <td>宽度</td>
+                    <td>面积</td>
                     <td>操作</td>
                 </tr>
                 </thead>
@@ -25,6 +28,9 @@
                     <tr>
                         <td>{{ $phone->id }}</td>
                         <td>{{ $phone->name }}</td>
+                        <td>{{ $phone->height }}</td>
+                        <td>{{ $phone->width }}</td>
+                        <td>{{ $phone->area }}</td>
                         <td>
                             <form action="/phones/{{ $phone->id }}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}

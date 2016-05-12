@@ -2,17 +2,17 @@
 
 @section('content')
     <div class="container" style="padding-top: 45px">
-        <h4>增加联系人</h4>
+        <h4>手机型号</h4>
         <hr/>
 
         <form enctype="multipart/form-data" method="post" action="/phones">
 
-            @include('phones.form_phone', ['name' => old('name')])
+            @include('phones.form_phone', ['id' => old('id'),'name' => old('name'), 'width' => old('width'), 'height' => old('height'), 'area' => old('area'), 'area1' =>''])
             <hr/>
             <div class="form-group">
-                <div class="col-md-12">
+                <div class="col-md-12 text-left">
                     <button type="submit" class="btn btn-info">
-                        增加联系人
+                        确认添加
                     </button>
                 </div>
             </div>

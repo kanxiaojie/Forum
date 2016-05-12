@@ -35,7 +35,7 @@ class PhoneController extends Controller
 
     public function store(Request $request)
     {
-        $this->phone->create($request->all());
+        Phone::create($request->all());
 
         return redirect('/phones');
     }

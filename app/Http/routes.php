@@ -36,6 +36,7 @@ Route::group(['middleware' => ['web']], function () {
         });
 
         Route::resource('posts', 'PostsController');
+
         Route::get('posts/{post_id}/photos', 'PostsController@photos');
         Route::post('posts/{post_id}/photos/store', ['as' => 'store_photo_path', 'uses' => 'PostsController@photosStore']);
         Route::post('posts/photos/{id}', 'PostsController@photosDestroy');
@@ -55,7 +56,7 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('areas/ajaxShow', 'AreasController@ajaxShow');
         Route::post('ajax/province', 'AreasController@province');
 
-        Route::resource('phones', 'PhoneController');
+        Route::resource('phones', 'PhoneController', ['except' => 'show']);
 
         Route::get('contact', 'ContactController@showForm');
         Route::post('contact', 'ContactController@sendContactInfo');
