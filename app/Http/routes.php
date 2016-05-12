@@ -40,6 +40,9 @@ Route::group(['middleware' => ['web']], function () {
         Route::post('posts/{post_id}/photos/store', ['as' => 'store_photo_path', 'uses' => 'PostsController@photosStore']);
         Route::post('posts/photos/{id}', 'PostsController@photosDestroy');
         Route::post('posts/{id}/active1', 'PostsController@active1');
+        Route::get('changePassword', 'PostsController@changePassword');
+        Route::post('changePassword/change', 'PostsController@change');
+        Route::post('reset/{id}', 'PostsController@reset');
 
 
         Route::get('request/url', 'PostsController@getUrl');

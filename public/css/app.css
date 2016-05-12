@@ -5803,4 +5803,10 @@ img {
 .gallery__image {
   margin-bottom: 1em; }
 
+.activeNav {
+  background: #901a1c; }
+
+.activeNavA {
+  color: #fff; }
+
 /*# sourceMappingURL=app.css.map */

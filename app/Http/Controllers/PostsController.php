@@ -6,26 +6,26 @@ use App\AddPhotoToPost;
 use App\Photo;
 use App\Post;
 use App\Http\Requests;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class PostsController extends Controller
 {
-//    public function __construct()
-//    {
-//        parent::__construct();
-//    }
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
-    /**
-     *
-     */
     public function index()
     {
 //        $posts = DB::table('posts')->paginate(5);
-        $posts = Post::where('id','>', 10)->paginate(10);
+        $posts = Post::paginate(10);
 //        $posts = Post::all();
         return view('posts.index',compact('posts'));
     }
@@ -156,6 +156,37 @@ class PostsController extends Controller
     public function photosDestroy($id)
     {
         Photo::findOrFail($id)->delete();
+
+        return back();
+    }
+
+    public function changePassword()
+    {
+        return view('auth.changePasswordIndex');
+    }
+
+    public function change(Request $request)
+    {
+        $messages = [
+            'min' => '密码至少需要 6 个字符.',
+        ];
+        $this->validate($request, [
+            'password' => 'required|confirmed|min:6',
+        ],$messages);
+
+        $user = Auth::user();
+        $inputs = Input::all();
+        $user->password = bcrypt($inputs['password']);
+        $user->save();
+
+        return redirect('/posts');
+    }
+
+    public function reset($id)
+    {
+        $user = User::where('id', $id)->first();
+        $user->password = bcrypt('123456');
+        $user->save();
 
         return back();
     }

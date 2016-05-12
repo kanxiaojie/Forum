@@ -58,7 +58,7 @@
     {{--@include('partials.page-footer')--}}
     <script src="/js/libs.js"></script>
 
-    @yield('scripts')
+    @include('scripts')
 
 
     @include('flash')

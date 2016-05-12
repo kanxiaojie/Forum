@@ -34,11 +34,11 @@
                             </div>
                             <nav role="navigation" class="collapse navbar-collapse bs-navbar-collapse">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="/areas"><i class="icon icon-home"></i>Dynamic</a></li>
-                                    <li><a href="/posts" class="active"><i class="icon icon-eye-close"></i> Find</a></li>
-                                    <li><a href="/phones"><i class="icon "></i> Topic</a></li>
-                                    <li>
-                                        <a href="/admin/upload" class=""><i class="icon icon-bell"></i> Notice</a>
+                                    <li id="areas"><a id="areasNav" href="/areas"><i class="icon icon-home"></i>Dynamic</a></li>
+                                    <li id="posts"><a id="postsNav" href="/posts" class="active"><i class="icon icon-eye-close"></i> Find</a></li>
+                                    <li id="phones"><a id="phonesNav" href="/phones"><i class="icon "></i> Topic</a></li>
+                                    <li id="upload">
+                                        <a id="uploadNav" href="/admin/upload" class=""><i class="icon icon-bell"></i> Notice</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -58,7 +58,8 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                                <li><a href="/changePassword">修改密码</a></li>
+                                <li><a href="{{ url('/logout') }}">Logout</a></li>
                             </ul>
                         </li>
                     @endif
@@ -67,3 +68,4 @@
         </div>
     </div>
 </nav>
+
