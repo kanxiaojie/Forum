@@ -48,7 +48,7 @@
                                 <a href="/posts/{{ $post->id }}/edit" class="btn btn-info">
                                     Edit
                                 </a>
-                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete">
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete{{ $post->id }}">
                                     Delete
                                 </button>
                             </td>
@@ -104,13 +104,43 @@
                                             </div>
                                         </div>
                                     </div>
+
                                 </form>
+
+                                <div class="modal fade" id="modal-delete{{ $post->id }}" tabindex="-1" role="dialog"
+                                     aria-labelledby="exampleModalLabel">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close"><span
+                                                            aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="exampleModalLabel">删除文章</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <h4 for="post_id">您确定要删除文章吗？</h4>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <form action="/posts/{{ $post->id }}" method="post">
+                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                    <input type="hidden" name="_method" value="DELETE">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">取消
+                                                    </button>
+                                                    <button type="submit" class="btn btn-primary">确认</button>
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
-
 
 
             </div>

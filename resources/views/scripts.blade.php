@@ -47,17 +47,13 @@
         }
     });
 
-//    function sumArea(){
-//        var sumValue;
-//        width =eval(document.getElementById('width').value);
-//        height =eval(document.getElementById("height").value);
-//        if(width == null){
-//            height=0;
-//        }
-//        if(height == null){
-//            height=0;
-//        }
-//        sumValue = (width * height)/1000000;
-//        $("#areas").attr("value",sumValue);
-//    }
+</script>
+
+<script>
+    Dropzone.options.addPhotosForm = {
+        dictDefaultMessage: "click or push pictures",
+        paramName: 'photo',
+        maxFilesize: 300,
+        acceptedFiles: '.jpg,.jpeg,.png,.bmp',
+    };
 </script>

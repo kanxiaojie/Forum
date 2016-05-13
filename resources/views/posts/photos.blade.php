@@ -18,6 +18,7 @@
                     </form>
 
                     <a href="/{{ $photo->path }}" data-lity>
+                        <h5 style="position: absolute;padding-top: 170px;padding-left: 30px;">{{ $photo->created_at }}</h5>
                         <img src="/{{ $photo->thumbnail_path }}" alt="">
                     </a>
                 </div>
@@ -41,15 +42,4 @@
         </div>
     </div>
 
-@endsection
-
-@section('scripts')
-    <script>
-        Dropzone.options.addPhotosForm = {
-            dictDefaultMessage: "click or push pictures",
-            paramName: 'photo',
-            maxFilesize: 300,
-            acceptedFiles: '.jpg,.jpeg,.png,.bmp',
-        };
-    </script>
 @endsection
