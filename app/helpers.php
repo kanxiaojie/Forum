@@ -28,3 +28,28 @@ function is_image($mimeType)
 {
     return starts_with($mimeType, 'image/');
 }
+
+
+function searchKeyExist($inputs)
+{
+    if(array_key_exists('provinceName', $inputs))
+    {
+        return 1;
+    }else{
+        return 0;
+    }
+}
+
+function getProvinceNameForSearch($inputs)
+{
+    $provinceName = [];
+    foreach(\App\Province::all() as $province)
+    {
+        if(fnmatch("*".$inputs['provinceName']."*", $province->name))
+        {
+            $provinceName[] = $province->name;
+        }
+    }
+
+    return $provinceName;
+}

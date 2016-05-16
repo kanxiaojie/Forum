@@ -26,6 +26,13 @@
 
         <hr/>
 
+        <form action="{{ $actionSearch }}" method="get">
+            <div class="form-inline text-right">
+                <input type="text" id="provinceName" name="provinceName" class="form-control" placeholder="输入省份名称">
+                <button type="submit" class="btn btn-info"><i class="icon-search"></i></button>
+            </div>
+        </form>
+        <br/>
         <table class="table table-bordered table-striped">
             <thead>
             <tr>

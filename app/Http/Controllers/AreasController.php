@@ -19,13 +19,26 @@ class AreasController extends Controller
 //        return response($cities);
 //    }
 
-    public function index()
+    public function index(Request $request)
     {
         $provinces = Province::all()->pluck('name', 'id');
-        $provincesAllDatas = Province::all();
         $cities = City::all()->pluck('name', 'id');
 
-        return view('areas.index', compact('provinces', 'cities', 'provincesAllDatas'));
+        $actionSearch = '/areas';
+
+        $inputs = $request->all();
+
+        $searchKey = searchKeyExist($inputs);
+        if($searchKey)
+        {
+            $provinceName = getProvinceNameForSearch($inputs);
+
+            $provincesAllDatas = Province::whereIn('name', $provinceName)->orderBy('id', 'asc')->paginate(10);
+        }else{
+            $provincesAllDatas = Province::orderBy('id','asc')->paginate(10);
+        }
+
+        return view('areas.index', compact('provinces', 'cities', 'provincesAllDatas', 'actionSearch'));
     }
 
     public function province(Request $request)
