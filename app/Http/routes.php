@@ -52,6 +52,7 @@ Route::group(['middleware' => ['web']], function () {
         });
 
         Route::resource('areas', 'AreasController', ['except' => 'show']);
+        Route::get('areas/provinceData', 'AreasController@provinceData');
 
         Route::get('areas/ajaxShow', 'AreasController@ajaxShow');
         Route::post('ajax/province', 'AreasController@province');

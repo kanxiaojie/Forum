@@ -16,9 +16,16 @@
             </div>
         </div>
         <hr/>
+        <div class="form-group">
+            <div class="form-inline text-right">
+                <input id="search" name="search" type="text" class="form-control" placeholder="输入关键字查询">
+                <button type="submit" class="btn btn-info"><i class="icon-search"></i></button>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-sm-12">
-                <table id="posts-table" class="table table-striped table-bordered">
+                <table id="" class="table table-striped table-bordered">
                     <thead>
                     <tr>
                         <th>Title</th>

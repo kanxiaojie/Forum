@@ -26,7 +26,7 @@
     </style>
 </head>
 <body style="padding: 0;">
-    <img src="/images/QQ截图20160510223004.png" style="border-radius: 0px;margin-left: 50px;margin-top: 30px;" alt="logo">
+    <img src="/images/QQ截图20160510223004.png" style="border-radius: 0px;margin-left: 50px;margin-top: 30px;" class="shadow" alt="logo">
     <img src="/images/QQ截图20160510223543.png" style="border-radius: 0px;float:right;width: 300px;height: 250px;">
     {{--<nav class="navbar navbar-default navbar-static-top">--}}
         {{--<div class="container">--}}

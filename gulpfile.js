@@ -16,13 +16,16 @@ elixir(function(mix) {
         .scripts([
             'libs/jquery-2.2.2.js',
             'libs/bootstrap.js',
+            'libs/Chart.js',
             'libs/sweetalert-dev.js',
             'libs/select2.min.js',
             //'libs/jquery.dynatable.js',
             'libs/jquery.dataTables.js',
             'libs/dataTables.bootstrap.js',
             'libs/dropzone.js',
-            'libs/lity.js'
+            'libs/lity.js',
+            'libs/highcharts.js'
+
         ],'./public/js/libs.js')
         .styles([
             'libs/sweetalert.css',

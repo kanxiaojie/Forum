@@ -10,6 +10,7 @@ class Post extends Model
         'title', 'content','subtitle'
     ];
 
+
     /**
      * One post has many comments.
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
