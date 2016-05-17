@@ -153,8 +153,8 @@
             success:function(response)
             {
                 options1.xAxis.categories = response.provinces;
-                options1.series[0].data = response.data1;
-                options1.series[1].data = response.data2;
+                options1.series[0].data = response.data2;
+                options1.series[1].data = response.data1;
 
                 chart = new Highcharts.Chart(options1);
             },

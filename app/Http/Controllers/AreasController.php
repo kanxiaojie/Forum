@@ -55,7 +55,7 @@ class AreasController extends Controller
         $provinceMaleNum = [];
         $provinceFemaleNum = [];
 
-        for($i=1; $i <= $provinceNum; $i++)
+        for($i=0; $i < $provinceNum; $i++)
         {
             $provinceMaleNum[] = Province::where('id', $i)->pluck('maleNumber')->toArray();
             $provinceFemaleNum[] = Province::where('id', $i)->pluck('femaleNumber')->toArray();

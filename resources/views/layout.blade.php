@@ -51,9 +51,7 @@
 
     @include('partials.page-nav')
 
-    <div class="container">
-        @yield('content')
-    </div>
+    @yield('content')
 
     {{--@include('partials.page-footer')--}}
     <script src="/js/libs.js"></script>

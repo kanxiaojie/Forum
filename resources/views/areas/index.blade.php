@@ -28,7 +28,9 @@
 
         <form action="{{ $actionSearch }}" method="get">
             <div class="form-inline text-right">
-                <input type="text" id="provinceName" name="provinceName" class="form-control" placeholder="输入省份名称">
+                <input type="text" id="provinceName" name="provinceName" class="form-control" placeholder="输入省份">
+                {{--<input type="text" id="maleNumber" name="maleNumber" class="form-control" placeholder="输入男性">--}}
+                {{--<input type="text" id="femaleNumber" name="maleNumber" class="form-control" placeholder="输入女性">--}}
                 <button type="submit" class="btn btn-info"><i class="icon-search"></i></button>
             </div>
         </form>

@@ -24,8 +24,8 @@ elixir(function(mix) {
             'libs/dataTables.bootstrap.js',
             'libs/dropzone.js',
             'libs/lity.js',
-            'libs/highcharts.js'
-
+            'libs/highcharts.js',
+            'libs/exporting.js'
         ],'./public/js/libs.js')
         .styles([
             'libs/sweetalert.css',
