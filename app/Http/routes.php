@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Response;
-
 Route::get('testResponseDownload', function(){
    return response()->download(
        realpath(base_path('public/images')).'/3.jpg','Laravel.jpg'
@@ -69,7 +67,6 @@ Route::group(['middleware' => ['web']], function () {
         });
 
     });
-
 
 });
 
