@@ -4,7 +4,7 @@
 
     <div class="row" style="background: url('/images/photos/QQ截图20160510224312.png');height: 490px;margin: 0px;">
         <div class="col-md-4 col-md-offset-4" style="text-align: center">
-            <div class="h3" style="color: #3673b6;">文章展示</div>
+            <div class="h3" style="color: #3673b6;">个人信息管理</div>
 
             <div class="panel panel-default" style="background: #EAEAEA;padding-top: 25px;padding-bottom:5px;padding-left: 50px;padding-right: 50px;">
                 <div class="panel-body">
