@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container">
         <div class="row page-title-row" style="padding-top: 25px">
             <div class="col-md-6">
                 <h4>Posts <small>» Listing</small></h4>

@@ -9,12 +9,7 @@
 
 
     <style>
-        .navbar{
-            padding-top: 5px;
-            margin-bottom: 15px;
-            padding-left: 0px;
-            font-size: 1.2em;
-        }
+
         .aw-search-box {
             margin: 10px 0;
         }
@@ -40,7 +35,10 @@
 
     @include('partials.page-nav')
 
-    @yield('content')
+    <div class="content">
+        @yield('content')
+
+    </div>
 
     <script src="/js/jquery-2.2.2.js"></script>
     <script src="/js/bootstrap.min.js"></script>
