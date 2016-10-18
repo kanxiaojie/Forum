@@ -3,13 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>LaravelForum</title>
-    <link rel="stylesheet" href="/css/libs.css" >
-    <link rel="stylesheet" href="/css/app.css" >
-    {{--<link rel="stylesheet" href="/css/font" >--}}
+    <link rel="stylesheet" href="/css/bootstrap.min.css" >
     <link rel="stylesheet" href="/css/font-awesome.min.css" >
-    {{--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.0.1/dropzone.css">--}}
+    <link rel="stylesheet" href="/css/style.css" >
 
-    {{--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">--}}
 
     <style>
         .navbar{
@@ -35,14 +32,6 @@
             display: block;
         }
 
-        .container{
-            width: 990px !important;
-            padding-right: 20px;
-            padding-left: 15px;
-            margin-right: auto;
-            margin-left: auto;
-        }
-
     </style>
 
 </head>
@@ -53,8 +42,8 @@
 
     @yield('content')
 
-    {{--@include('partials.page-footer')--}}
-    <script src="/js/libs.js"></script>
+    <script src="/js/jquery-2.2.2.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 
     @include('scripts')
 

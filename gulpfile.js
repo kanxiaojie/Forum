@@ -15,7 +15,7 @@ elixir(function(mix) {
     mix.sass('app.scss')
         .scripts([
             'libs/jquery-2.2.2.js',
-            'libs/bootstrap.js',
+            // 'libs/bootstrap.js',
             'libs/Chart.js',
             'libs/sweetalert-dev.js',
             'libs/select2.min.js',
