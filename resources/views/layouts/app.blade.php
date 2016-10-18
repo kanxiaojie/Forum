@@ -7,21 +7,29 @@
 
     <title>Personnal Manager</title>
 
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Lato';
-        }
+    <link rel="stylesheet" href="/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="/css/font-awesome.min.css" >
+    <link rel="stylesheet" href="/css/style.css" >
 
-        .fa-btn {
-            margin-right: 6px;
+    <style>
+        ul li
+        {
+            list-style: none;
+            line-height: 50px;
+            font-size: 20px;
         }
     </style>
 </head>
-<body style="padding: 0;">
-    <img src="/images/QQ截图20160510223004.png" style="border-radius: 0px;margin-left: 50px;margin-top: 30px;" class="shadow" alt="logo">
-    <img src="/images/QQ截图20160510223543.png" style="border-radius: 0px;float:right;width: 300px;height: 250px;">
-
+<body>
+    {{--<img src="/images/QQ截图20160510223004.png" style="border-radius: 0px;margin-left: 50px;margin-top: 30px;" class="shadow" alt="logo">--}}
+    {{--<img src="/images/QQ截图20160510223543.png" style="border-radius: 0px;float:right;width: 300px;height: 250px;">--}}
+    <div class="container" style="width: 100%;height: 50px">
+        <div class="row">
+            <ul>
+                <li>Personnal Manager</li>
+            </ul>
+        </div>
+    </div>
 
     @yield('content')
 
