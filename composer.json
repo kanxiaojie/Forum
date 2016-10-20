@@ -10,7 +10,8 @@
         "maatwebsite/excel": "~2.0.0",
         "laravel/socialite": "^2.0",
         "dflydev/apache-mime-types": "^1.0",
-        "intervention/image": "^2.3"
+        "intervention/image": "^2.3",
+        "codeless/ziparchiveex":"1.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

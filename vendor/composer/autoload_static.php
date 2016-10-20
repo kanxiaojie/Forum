@@ -273,6 +273,13 @@ class ComposerStaticInit792b237ab49c38f6cdb77d02952aaaeb
     );
 
     public static $prefixesPsr0 = array (
+        'Z' => 
+        array (
+            'ZipArchiveEx' => 
+            array (
+                0 => __DIR__ . '/..' . '/codeless/ziparchiveex/src',
+            ),
+        ),
         'P' => 
         array (
             'Prophecy\\' => 
@@ -293,6 +300,13 @@ class ComposerStaticInit792b237ab49c38f6cdb77d02952aaaeb
             'Maatwebsite\\Excel\\' => 
             array (
                 0 => __DIR__ . '/..' . '/maatwebsite/excel/src',
+            ),
+        ),
+        'L' => 
+        array (
+            'LogMore' => 
+            array (
+                0 => __DIR__ . '/..' . '/codeless/logmore/src',
             ),
         ),
         'J' => 
@@ -1704,6 +1718,7 @@ class ComposerStaticInit792b237ab49c38f6cdb77d02952aaaeb
         'League\\Flysystem\\Plugin\\PluginNotFoundException' => __DIR__ . '/..' . '/league/flysystem/src/Plugin/PluginNotFoundException.php',
         'League\\Flysystem\\ReadInterface' => __DIR__ . '/..' . '/league/flysystem/src/ReadInterface.php',
         'League\\Flysystem\\RootViolationException' => __DIR__ . '/..' . '/league/flysystem/src/RootViolationException.php',
+        'League\\Flysystem\\SafeStorage' => __DIR__ . '/..' . '/league/flysystem/src/SafeStorage.php',
         'League\\Flysystem\\UnreadableFileException' => __DIR__ . '/..' . '/league/flysystem/src/UnreadableFileException.php',
         'League\\Flysystem\\Util' => __DIR__ . '/..' . '/league/flysystem/src/Util.php',
         'League\\Flysystem\\Util\\ContentListingFormatter' => __DIR__ . '/..' . '/league/flysystem/src/Util/ContentListingFormatter.php',
@@ -1729,6 +1744,8 @@ class ComposerStaticInit792b237ab49c38f6cdb77d02952aaaeb
         'League\\OAuth1\\Client\\Signature\\PlainTextSignature' => __DIR__ . '/..' . '/league/oauth1-client/src/Client/Signature/PlainTextSignature.php',
         'League\\OAuth1\\Client\\Signature\\Signature' => __DIR__ . '/..' . '/league/oauth1-client/src/Client/Signature/Signature.php',
         'League\\OAuth1\\Client\\Signature\\SignatureInterface' => __DIR__ . '/..' . '/league/oauth1-client/src/Client/Signature/SignatureInterface.php',
+        'LogMore' => __DIR__ . '/..' . '/codeless/logmore/src/LogMore.php',
+        'LogMoreBase' => __DIR__ . '/..' . '/codeless/logmore/src/LogMore.php',
         'Maatwebsite\\Excel\\Classes\\Cache' => __DIR__ . '/..' . '/maatwebsite/excel/src/Maatwebsite/Excel/Classes/Cache.php',
         'Maatwebsite\\Excel\\Classes\\FormatIdentifier' => __DIR__ . '/..' . '/maatwebsite/excel/src/Maatwebsite/Excel/Classes/FormatIdentifier.php',
         'Maatwebsite\\Excel\\Classes\\LaravelExcelWorksheet' => __DIR__ . '/..' . '/maatwebsite/excel/src/Maatwebsite/Excel/Classes/LaravelExcelWorksheet.php',
@@ -3466,6 +3483,7 @@ class ComposerStaticInit792b237ab49c38f6cdb77d02952aaaeb
         'UserSeeder' => __DIR__ . '/../..' . '/database/seeds/UserSeeder.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
         'XdgBaseDir\\Xdg' => __DIR__ . '/..' . '/dnoegel/php-xdg-base-dir/src/Xdg.php',
+        'ZipArchiveEx' => __DIR__ . '/..' . '/codeless/ziparchiveex/src/ZipArchiveEx.php',
         'phpDocumentor\\Reflection\\DocBlock' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock.php',
         'phpDocumentor\\Reflection\\DocBlockFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactory.php',
         'phpDocumentor\\Reflection\\DocBlockFactoryInterface' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactoryInterface.php',

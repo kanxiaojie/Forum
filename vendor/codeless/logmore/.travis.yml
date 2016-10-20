@@ -1,0 +1,9 @@
+language: php
+
+php:
+  - 5.3
+  - 5.4
+
+install: sudo apt-get -y install autogen
+
+before_script: make
