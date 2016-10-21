@@ -159,6 +159,8 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
 
         Intervention\Image\ImageServiceProvider::class,
+
+        Mews\Purifier\PurifierServiceProvider::class,
     ],
 
     /*
@@ -208,6 +210,7 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
         'Image' => Intervention\Image\Facades\Image::class,
+        'Purifier' => Mews\Purifier\Facades\Purifier::class,
     ],
 
 ];

@@ -11,7 +11,8 @@
         "laravel/socialite": "^2.0",
         "dflydev/apache-mime-types": "^1.0",
         "intervention/image": "^2.3",
-        "codeless/ziparchiveex":"1.*"
+        "codeless/ziparchiveex":"1.*",
+        "mews/purifier": "^2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
