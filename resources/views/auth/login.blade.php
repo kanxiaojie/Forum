@@ -2,7 +2,8 @@
 
 @section('content')
 
-    <div class="row" style="background: url('/images/photos/QQ截图20160510224312.png');height: 490px;margin: 0px;">
+    {{--<div class="row" style="background: url('/images/photos/QQ截图20160510224312.png');height: 490px;margin: 0px;">--}}
+    <div class="row">
         <div class="col-md-4 col-md-offset-4" style="text-align: center">
             <div class="h3" style="color: #3673b6;">个人信息管理</div>
 
@@ -42,5 +43,5 @@
         </div>
     </div>
 
-<img src="/images/photos/QQ截图20160510223038.png" style="border-radius: 0px;margin-bottom: 0px;" alt>
+{{--<img src="/images/photos/QQ截图20160510223038.png" style="border-radius: 0px;margin-bottom: 0px;" alt>--}}
 @endsection
