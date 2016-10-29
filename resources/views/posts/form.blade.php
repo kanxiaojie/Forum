@@ -18,8 +18,8 @@
         </div>
 
         <div class="form-group col-md-12">
-            <label for="content">Content:</label>
-            <textarea type="text" name="content" id="content" class="form-control" rows="15">
+            <label for="content">Content:</label><br>
+            <textarea name="content" id="content" cols="130" rows="15" style="padding: 8px">
                 {{ $content }}
             </textarea>
         </div>

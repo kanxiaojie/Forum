@@ -24,9 +24,13 @@ class PostsController extends Controller
 
     public function index()
     {
-//        $posts = DB::table('posts')->paginate(5);
-        $posts = Post::paginate(10);
-//        $posts = Post::all();
+        $posts = Cache::get('posts');
+        if(!$posts)
+        {
+            $posts = Post::paginate(10);
+            Cache::put('posts',$posts,60*24*7);
+        }
+
         return view('posts.index',compact('posts'));
     }
 
@@ -44,7 +48,13 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        $post = Post::findOrFail($id);
+        $post = Cache::get('post'.$id);
+        if(!$post)
+        {
+            $post = Post::findOrFail($id);
+            Cache::put('post'.$id,$post,60*24*7);
+        }
+
         return view('posts.show',compact('post','id'));
     }
 
@@ -63,9 +73,23 @@ class PostsController extends Controller
     public function store(PostRequest $request)
     {
         flash()->success('Success!', 'Your post have been created!');
+        $inputs = $request->all();
+//        Post::create($request->all());
+        $post = new Post();
+        $post->user_id = $inputs['user_id'];
+        $post->title = $inputs['title'];
+        $post->subtitle = $inputs['subtitle'];
+        $post->content = $inputs['content'];
+        $post->save();
 
-        Post::create($request->all());
-
+        $cacheKey = 'posts';
+        $cacheData = Cache::get($cacheKey);
+        if(!$cacheData){
+            Cache::add($cacheKey,$post,60*24*7);
+        }else
+        {
+            Cache::put($cacheKey,$post,60*24*7);
+        }
         return redirect()
                ->route("posts.index");
     }
@@ -77,6 +101,7 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post = Post::findOrFail($id);
+
         return view('posts.edit', compact('post'));
     }
 
@@ -85,8 +110,16 @@ class PostsController extends Controller
         flash()->success('Success!', 'Your post have been edited successfully!');
 
         $post = Post::findOrFail($id);
-
         $post->update($request->all());
+
+        $cacheKey = 'post'.$post->id;
+        $cacheData = Cache::get($cacheKey);
+        if(!$cacheData)
+        {
+            Cache::add($cacheKey,$post,60*24*7);
+        }else{
+            Cache::put($cacheKey,$post,60*24*7);
+        }
 
         return redirect()
                ->route('posts.index')
@@ -96,8 +129,14 @@ class PostsController extends Controller
     public function destroy($id)
     {
         $post = Post::findOrFail($id);
-
         $post->delete();
+
+        $cacheKey = 'post'.$id;
+        $cacheData = Cache::get($cacheKey);
+        if($cacheData)
+        {
+            Cache::forget($cacheData);
+        }
 
         return back();
     }

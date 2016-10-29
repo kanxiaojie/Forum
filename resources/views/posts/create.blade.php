@@ -6,7 +6,7 @@
         <h1>Write Your Post Below</h1>
         <hr>
         <form method="post" action="/posts" enctype="multipart/form-data">
-
+            <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
             @include('posts.form',['title' => old('title'), 'subtitle' => old('subtitle'), 'content' => old('content')])
 
             <div class="col-md-12">
