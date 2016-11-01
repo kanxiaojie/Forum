@@ -11,13 +11,6 @@ use App\Http\Requests;
 
 class AreasController extends Controller
 {
-//    public function ajaxShow(Request $request)
-//    {
-//        $inputs = $request->all();
-//        $cities = City::where('province_id', $inputs['province_id'])->get()->toArray();
-//
-//        return response($cities);
-//    }
 
     public function index(Request $request)
     {
