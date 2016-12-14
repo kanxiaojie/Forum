@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'ZipArchiveEx' => array($vendorDir . '/codeless/ziparchiveex/src'),
+    'SimpleSoftwareIO\\QrCode\\' => array($vendorDir . '/simplesoftwareio/simple-qrcode/src'),
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
     'PHPExcel' => array($vendorDir . '/phpoffice/phpexcel/Classes'),
     'Mockery' => array($vendorDir . '/mockery/mockery/library'),
@@ -18,4 +19,5 @@ return array(
     'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib'),
     'Dflydev\\ApacheMimeTypes' => array($vendorDir . '/dflydev/apache-mime-types/src'),
     'Cron' => array($vendorDir . '/mtdowling/cron-expression/src'),
+    'BaconQrCode' => array($vendorDir . '/bacon/bacon-qr-code/src'),
 );

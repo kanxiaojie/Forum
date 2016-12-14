@@ -34,6 +34,7 @@ Route::group(['middleware' => ['web']], function () {
         });
 
         Route::resource('posts', 'PostsController');
+        Route::get('posts/{id}/QrCode','PostsController@QrCode');
 
         Route::get('posts/{post_id}/photos', 'PostsController@photos');
         Route::post('posts/{post_id}/photos/store', ['as' => 'store_photo_path', 'uses' => 'PostsController@photosStore']);

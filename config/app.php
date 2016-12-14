@@ -161,6 +161,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
 
         Mews\Purifier\PurifierServiceProvider::class,
+        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class
     ],
 
     /*
@@ -211,6 +212,7 @@ return [
 
         'Image' => Intervention\Image\Facades\Image::class,
         'Purifier' => Mews\Purifier\Facades\Purifier::class,
+        'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
     ],
 
 ];

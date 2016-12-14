@@ -24,12 +24,12 @@ class PostsController extends Controller
 
     public function index()
     {
-        $posts = Cache::get('posts');
-        if(!$posts)
-        {
+//        $posts = Cache::get('posts');
+//        if(!$posts)
+//        {
             $posts = Post::paginate(10);
-            Cache::put('posts',$posts,60*24*7);
-        }
+//            Cache::put('posts',$posts,60*24*7);
+//        }
 
         return view('posts.index',compact('posts'));
     }
@@ -48,12 +48,12 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        $post = Cache::get('post'.$id);
-        if(!$post)
-        {
+//        $post = Cache::get('post'.$id);
+//        if(!$post)
+//        {
             $post = Post::findOrFail($id);
-            Cache::put('post'.$id,$post,60*24*7);
-        }
+//            Cache::put('post'.$id,$post,60*24*7);
+//        }
 
         return view('posts.show',compact('post','id'));
     }
@@ -228,5 +228,10 @@ class PostsController extends Controller
         $user->save();
 
         return back();
+    }
+
+    public function QrCode($id)
+    {
+        return view('posts.QrCode',compact('id'));
     }
 }

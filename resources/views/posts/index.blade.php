@@ -34,6 +34,7 @@
                         <th>Action</th>
                         <th>View Photos</th>
                         <th>verify</th>
+                        <th>二维码</th>
                     </tr>
                     </thead>
 
@@ -143,6 +144,10 @@
                                     </div>
                                 </div>
 
+                            </td>
+
+                            <td>
+                                <a class="btn btn-primary" href="/posts/{{ $post->id }}/QrCode" target="_blank">文章二维码</a>
                             </td>
                         </tr>
                     @endforeach

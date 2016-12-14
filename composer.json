@@ -13,7 +13,8 @@
         "intervention/image": "^2.3",
         "codeless/ziparchiveex":"1.*",
         "mews/purifier": "^2.0",
-        "predis/predis": "^1.1"
+        "predis/predis": "^1.1",
+        "simplesoftwareio/simple-qrcode": "1.3.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
