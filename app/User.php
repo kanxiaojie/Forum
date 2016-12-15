@@ -23,4 +23,9 @@ class User extends Authenticatable
     protected $hidden = [
          'remember_token',
     ];
+
+    public function language()
+    {
+        return $this->belongsTo('App\Language');
+    }
 }

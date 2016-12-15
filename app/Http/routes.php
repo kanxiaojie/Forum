@@ -14,14 +14,11 @@ Route::get('testResponse', function(){
 
 Route::get('mail/send', 'MailController@send');
 
-Route::group(['middleware' => ['web']], function () {
+Route::group(['middleware' => ['web','language']], function () {
 
     Route::auth();
-
     Route::get('auth/github','Auth\AuthController@redirectToProvider');
     Route::get('auth/github/callback', 'Auth\AuthController@handleProviderCallback');
-
-
     Route::group(['middleware' => 'auth'], function(){
 
         Route::get('excel/export', 'ExcelController@export');

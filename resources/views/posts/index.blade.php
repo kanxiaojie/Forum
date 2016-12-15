@@ -28,7 +28,7 @@
                 <table id="" class="table table-striped table-bordered">
                     <thead>
                     <tr>
-                        <th>Title</th>
+                        <th>{{ trans('posts.title') }}</th>
                         <th>Subtitle</th>
                         <th>Author</th>
                         <th>Action</th>
