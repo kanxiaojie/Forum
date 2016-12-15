@@ -33,7 +33,9 @@ Route::group(['middleware' => ['web']], function () {
             return view('welcome');
         });
 
-        Route::resource('posts', 'PostsController');
+        require __DIR__.'/admin.php';
+
+//        Route::resource('posts', 'PostsController');
         Route::get('posts/{id}/QrCode','PostsController@QrCode');
 
         Route::get('posts/{post_id}/photos', 'PostsController@photos');
