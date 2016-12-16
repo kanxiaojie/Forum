@@ -26,7 +26,7 @@ class CheckForMaintenanceMode
     public function handle($request, Closure $next)
     {
         if($this->app->isDownForMaintenance() &&
-            !in_array($request->getClientIp(),['192.168.2.106']))
+            !in_array($request->getClientIp(),['192.168.2.106','192.168.2.108']))
         {
             return response('Be right back!',503);
         }
