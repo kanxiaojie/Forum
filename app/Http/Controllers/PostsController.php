@@ -234,4 +234,20 @@ class PostsController extends Controller
     {
         return view('posts.QrCode',compact('id'));
     }
+
+    /**
+     * 自定义500错误
+     */
+    public function error()
+    {
+        try{
+            error_log('bb');
+            $user = 'a';
+            $this->dispatch($user);
+        }catch (\Exception $exception)
+        {
+            error_log('aa');
+            return view('errors.503');
+        }
+    }
 }

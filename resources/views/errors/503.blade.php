@@ -41,6 +41,7 @@
         <div class="container">
             <div class="content">
                 <div class="title">Be right back.</div>
+                <div class="title">您访问的页面不存在！</div>
             </div>
         </div>
     </body>

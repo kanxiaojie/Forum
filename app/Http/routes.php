@@ -31,6 +31,7 @@ Route::group(['middleware' => ['web','language']], function () {
         });
 
         require __DIR__.'/admin.php';
+        Route::get('error','PostsController@error');
 
 //        Route::resource('posts', 'PostsController');
         Route::get('posts/{id}/QrCode','PostsController@QrCode');
