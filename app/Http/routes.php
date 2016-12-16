@@ -14,7 +14,7 @@ Route::get('testResponse', function(){
 
 Route::get('mail/send', 'MailController@send');
 
-Route::group(['middleware' => ['web','language']], function () {
+Route::group(['middleware' => ['web','language','check']], function () {
 
     Route::auth();
     Route::get('auth/github','Auth\AuthController@redirectToProvider');
